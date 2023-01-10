@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'principal']);
+Route::get('/sobre', [HomeController::class, 'sobre']);
