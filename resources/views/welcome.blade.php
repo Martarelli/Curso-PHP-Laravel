@@ -7,7 +7,6 @@
     <title>Página inicial</title>
 </head>
 <body>
-    <h1>Olá Mundo!</h1>
-    <h2>Seja bem-vindo</h2>
+    <h1>Meu primeiro template Blade</h1>
 </body>
 </html>

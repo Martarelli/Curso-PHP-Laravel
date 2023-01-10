@@ -7,6 +7,6 @@
     <title>Página de Login</title>
 </head>
 <body>
-    <h1>LOGIN</h1>
+    <h2>Instituto de Ciência e Tecnologia de Franca</h2>
 </body>
 </html>
