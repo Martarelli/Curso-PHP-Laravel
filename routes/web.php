@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalcController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'principal']);
 Route::get('/sobre', [HomeController::class, 'sobre']);
+Route::get('/soma10/{num}', [CalcController::class, 'soma10']);
