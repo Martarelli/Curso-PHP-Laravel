@@ -18,3 +18,4 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'principal']);
 Route::get('/sobre', [HomeController::class, 'sobre']);
 Route::get('/soma10/{num}', [CalcController::class, 'soma10']);
+Route::get('/soma/{num1}/{num2}', [CalcController::class, 'soma']);
