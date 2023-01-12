@@ -12,5 +12,10 @@
     <p>R$ {{$product -> price}}</p>
     <a href="/edit/{{$product -> id}}">Editar Produto</a>
     <a href="/">Página Inicial</a>
+
+    <form action="/destroy/{{$product -> id}}" method="POST">
+        @csrf
+        <button type="submit">Deletar</button>
+    </form>
 </body>
 </html>
