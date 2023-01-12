@@ -44,4 +44,15 @@ class ProductController extends Controller
         return view('products.edit', compact('product'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id);
+        $product -> update([
+           'name' => $request -> name,
+           'description' => $request -> description,
+           'price' => $request -> price
+        ]);
+
+        return redirect('/');
+    }
 }
