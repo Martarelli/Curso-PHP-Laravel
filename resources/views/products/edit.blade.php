@@ -13,7 +13,7 @@
         <input type="text" name="name" value="{{$product -> name}}" placeholder="Digite o nome...">
         <input type="text" name="description" value="{{$product -> description}}" placeholder="Digite a descrição...">
         <input type="number" step="any" name="price" value="{{$product -> price}}" placeholder="Digite o preço...">
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Enviar</button>
     </form>
 </body>
 </html>
