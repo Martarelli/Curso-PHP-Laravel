@@ -14,9 +14,7 @@
     <ul>
         @foreach ($products as $item)
             <li>
-                <h3>{{$item->name}}</h3>
-                <p>{{$item -> description}}</p>
-                <p>R$ {{$item -> price}}</p>
+                <a href="/show/{{$item->id}}">{{$item->name}}</a>
             </li>
         @endforeach
     </ul>
