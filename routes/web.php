@@ -21,3 +21,5 @@ Route::get('/create', [ProductController::class, 'create']);
 Route::post('/store', [ProductController::class, 'store']);
 
 Route::get('/show/{id}', [ProductController::class, 'show']);
+
+Route::get('/edit/{id}', [ProductController::class, 'edit']);

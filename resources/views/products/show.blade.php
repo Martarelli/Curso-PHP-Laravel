@@ -10,5 +10,6 @@
     <h1>{{$product->name}}</h1>
     <p>{{$product -> description}}</p>
     <p>R$ {{$product -> price}}</p>
+    <a href="/edit/{{$product -> id}}">Editar Produto</a>
 </body>
 </html>
