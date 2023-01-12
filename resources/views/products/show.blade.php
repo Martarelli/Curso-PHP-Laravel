@@ -11,5 +11,6 @@
     <p>{{$product -> description}}</p>
     <p>R$ {{$product -> price}}</p>
     <a href="/edit/{{$product -> id}}">Editar Produto</a>
+    <a href="/">Página Inicial</a>
 </body>
 </html>
