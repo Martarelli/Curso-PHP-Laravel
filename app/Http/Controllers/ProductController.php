@@ -30,4 +30,11 @@ class ProductController extends Controller
         return redirect('/');
     }
 
+    public function show($id)
+    {
+        $product = Product::find($id);
+
+        return view('products.show', compact('product'));
+    }
+
 }
