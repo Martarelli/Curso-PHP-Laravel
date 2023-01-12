@@ -53,6 +53,6 @@ class ProductController extends Controller
            'price' => $request -> price
         ]);
 
-        return redirect('/');
+        return redirect('/show/' . $id);
     }
 }
