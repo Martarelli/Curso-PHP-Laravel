@@ -1,5 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>HELLO WORLD</h1>
+    <div class="min-vh-100 d-flex justify-content-center align-items-center">
+
+        <form action="/signin" method="POST" style="width: 400px">
+            @csrf
+            <h1>Login</h1>
+            <input class="form-control my-3" type="email" name="email" placeholder="E-mail">
+            <input class="form-control mb-3" type="password" name="password" placeholder="Senha">
+
+            <button class="btn btn-outline-primary w-100 mb-3" type="submit">Enviar</button>
+
+            <a class="link-secondary" href="/register">Cadastro</a>
+        </form>
+
+
+    </div>
 @endsection
