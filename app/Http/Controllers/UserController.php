@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -23,5 +24,21 @@ class UserController extends Controller
         }
 
         return back();
+    }
+
+    public function register()
+    {
+        return view('register');
+    }
+
+    public function signup(Request $request)
+    {
+        User::create([
+            'name' => $request -> name,
+            'email' => $request -> email,
+            'password' => bcrypt($request -> password)
+        ]);
+
+        return redirect() -> route('login');
     }
 }
