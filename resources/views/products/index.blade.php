@@ -18,5 +18,7 @@
             </li>
         @endforeach
     </ul>
+
+    <a href="/logout">Logout</a>
 </body>
 </html>
