@@ -26,3 +26,7 @@ Route::get('/edit/{id}', [ProductController::class, 'edit']);
 Route::post('/update/{id}', [ProductController::class, 'update']);
 
 Route::post('/destroy/{id}', [ProductController::class, 'destroy']);
+
+//Rotas de autenticação
+
+Route::get('/login', [UserController::class, 'login']);
