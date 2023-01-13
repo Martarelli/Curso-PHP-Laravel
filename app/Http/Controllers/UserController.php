@@ -39,6 +39,12 @@ class UserController extends Controller
             'password' => bcrypt($request -> password)
         ]);
 
-        return redirect() -> route('login');
+        return redirect() -> route('login'); //redirect utilizando name
+    }
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect() -> route('login'); //redirect utilizando name
     }
 }
