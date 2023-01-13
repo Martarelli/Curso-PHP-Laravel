@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -15,11 +15,11 @@ class UserController extends Controller
     public function signin(Request $request)
     {
         $credentials = [
-            'email' => $request -> email,
-            'password' => $request -> password,
+            'email' => $request->email,
+            'password' => $request->password
         ];
 
-        if(auth() -> attempt($credentials)){
+        if (auth()->attempt($credentials)) {
             return redirect('/');
         }
 
@@ -34,17 +34,17 @@ class UserController extends Controller
     public function signup(Request $request)
     {
         User::create([
-            'name' => $request -> name,
-            'email' => $request -> email,
-            'password' => bcrypt($request -> password)
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
         ]);
 
-        return redirect() -> route('login'); //redirect utilizando name
+        return redirect('/login');
     }
+
     public function logout()
     {
         auth()->logout();
-
-        return redirect() -> route('login'); //redirect utilizando name
+        return redirect('/login');
     }
 }
