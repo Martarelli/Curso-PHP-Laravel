@@ -10,4 +10,18 @@ class UserController extends Controller
     {
         return view('login');
     }
+
+    public function signin(Request $request)
+    {
+        $credentials = [
+            'email' => $request -> email,
+            'password' => $request -> password,
+        ];
+
+        if(auth() -> attempt($credentials)){
+            return redirect('/');
+        }
+
+        return back();
+    }
 }

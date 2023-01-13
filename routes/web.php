@@ -31,3 +31,5 @@ Route::post('/destroy/{id}', [ProductController::class, 'destroy']);
 //Rotas de autenticação
 
 Route::get('/login', [UserController::class, 'login']) -> name('login');
+Route::post('/signin', [UserController::class, 'signin']);
+Route::get('/register', [UserController::class, 'register']);
