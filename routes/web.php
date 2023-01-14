@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -14,5 +15,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [UserController::class, 'login']);
+Route::get('/', [HomeController::class, 'dashboard']);
+
+Route::get('/login', [UserController::class, 'login']) -> name('login');
 Route::get('/register', [UserController::class, 'register']);
