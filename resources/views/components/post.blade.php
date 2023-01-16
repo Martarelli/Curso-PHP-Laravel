@@ -4,7 +4,7 @@
         <span class="fw-bold">Admin</span>
     </div>
 
-    <img src="https://i.imgur.com/BEqFxWf.png" class="card-img" alt="image">
+    <img src="https://picsum.photos/400/400" class="card-img" alt="image">
 
     <div class="card-body">
         <p class="card-text">Exemplo de um post</p>
