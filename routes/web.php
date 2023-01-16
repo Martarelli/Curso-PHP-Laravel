@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -19,3 +20,6 @@ Route::get('/', [HomeController::class, 'dashboard']);
 
 Route::get('/login', [UserController::class, 'login']) -> name('login');
 Route::get('/register', [UserController::class, 'register']);
+
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts/store', [PostController::class, 'store']);
