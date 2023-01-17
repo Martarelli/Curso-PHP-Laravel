@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function dashboard()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id','desc')->get();
 
         return view('dashboard', compact('posts'));
     }
