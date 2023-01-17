@@ -27,4 +27,7 @@ Route::group(['middleware' => 'auth'] , function(){
     Route::get('/', [HomeController::class, 'dashboard']);
     Route::get('/posts/create', [PostController::class, 'create']);
     Route::post('/posts/store', [PostController::class, 'store']);
+    Route::get('/posts/edit/{id}', [PostController::class, 'edit']);
+    Route::post('/posts/update/{id}', [PostController::class, 'update']);
+    Route::post('/posts/destroy/{id}', [PostController::class, 'destroy']);
 });
