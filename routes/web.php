@@ -16,7 +16,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [HomeController::class, 'dashboard']);
 
 Route::get('/login', [UserController::class, 'login']) -> name('login');
 Route::get('/register', [UserController::class, 'register']);
@@ -24,5 +23,8 @@ Route::post('/signin', [UserController::class, 'signin']);
 Route::post('/signup', [UserController::class, 'signup']);
 Route::get('/logout', [UserController::class, 'logout']);
 
-Route::get('/posts/create', [PostController::class, 'create']);
-Route::post('/posts/store', [PostController::class, 'store']);
+Route::group(['middleware' => 'auth'] , function(){
+    Route::get('/', [HomeController::class, 'dashboard']);
+    Route::get('/posts/create', [PostController::class, 'create']);
+    Route::post('/posts/store', [PostController::class, 'store']);
+});

@@ -4,7 +4,7 @@
         <span class="fw-bold">{{$post->user_id}}</span>
     </div>
 
-    <img src="{{$post->image}}" class="card-image" alt="image">
+    <img src="{{$post->image}}" alt="image">
 
     <div class="card-body">
         <p class="card-text">{{$post->description}}</p>
