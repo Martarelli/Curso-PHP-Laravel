@@ -2,6 +2,11 @@
 
     <div class="card-header bg-white border-0">
         <span class="fw-bold">{{$post->user->name}}</span>
+        @if ($post->user_id == $user->id)
+            <a href="/posts/edit/{{$post->id}}" class="float-end">
+                <i class="bi bi-pencil-square"></i>
+            </a>
+        @endif
     </div>
 
     <img src="{{$post->image}}" alt="image">
