@@ -78,8 +78,9 @@ class TodoController extends Controller
             $user = auth()->user();
 
             if ($todo->user_id !== $user->id) {
-                return abort(404);
+                return response('', 404);
             }
+
             return view('edit', compact('todo'));
 
         } catch (\Throwable $th) {
