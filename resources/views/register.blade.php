@@ -1,20 +1,30 @@
 @extends('layouts.app')
 
+@section('title', '| Registrar')
+
 @section('content')
     <div class="min-vh-100 d-flex justify-content-center align-items-center">
-
-        <form action="/signup" method="POST" style="width: 400px">
+        <form class="mw-100" action="{{ route('signup') }}" method="post" style="width: 400px;">
             @csrf
-            <h1>Cadastro</h1>
-            <input class="form-control my-3" type="text" name="name" placeholder="Nome">
-            <input class="form-control mb-3" type="email" name="email" placeholder="E-mail">
-            <input class="form-control mb-3" type="password" name="password" placeholder="Senha">
 
-            <button class="btn btn-outline-primary w-100 mb-3" type="submit">Enviar</button>
+            <h1 class="mb-5 text-secondary text-center">Cadastro</h1>
 
-            <a class="link-secondary" href="/">Login</a>
+            <div class="mb-3">
+                <input class="form-control" name="name" placeholder="Nome" required>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="email" name="email" placeholder="E-mail" required>
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" type="password" name="password" placeholder="Senha" required>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-dark" type="submit">Cadastrar</button>
+                <a class="link-secondary" href="{{ route('login') }}">Login</a>
+            </div>
         </form>
-
-
     </div>
 @endsection
