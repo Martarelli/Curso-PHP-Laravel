@@ -33,7 +33,6 @@ class TodoController extends Controller
         try {
             $user = auth()->user();
 
-            logger()->info($request);
             Todo::create([
                 'title' => $request -> title,
                 'color' => $request -> color,
@@ -83,10 +82,14 @@ class TodoController extends Controller
     {
         try {
             // Verificar se TODO é do usuário
+            $user = auth()->user();
+
             if ($todo->user_id !== $user->id) {
                 return response('', 403);
             }
 
+            logger()->info($todo);
+            $todo = Todo::find($todo->id);
             $todo->delete();
         } catch (\Throwable $th) {
             logger()->error($th);
