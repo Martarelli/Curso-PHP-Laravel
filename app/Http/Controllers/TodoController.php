@@ -33,15 +33,13 @@ class TodoController extends Controller
         try {
             $user = auth()->user();
 
-            $attributes = $request->only([
-                'title',
-                'description',
-                'color'
+            logger()->info($request);
+            Todo::create([
+                'title' => $request -> title,
+                'color' => $request -> color,
+                'user_id' => $user->id
             ]);
 
-            $attributes['user_id'] = $user->id;
-
-            $todo = Todo::create($attributes);
         } catch (\Throwable $th) {
             logger()->error($th);
             return redirect('/todos/create')->with('error', 'Erro ao criar TODO');
