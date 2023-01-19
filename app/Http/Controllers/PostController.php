@@ -36,6 +36,8 @@ class PostController extends Controller
             'user_id' => $user->id
         ]);
 
+        logger()->notice('Um post foi feito por ' . $user->name);
+
         return redirect('/');
     }
 
