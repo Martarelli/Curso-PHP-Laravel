@@ -26,19 +26,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth()->user();
+        try {
+            $user = Auth()->user();
 
-        $path = $request->photo->store('public/images');
+            $path = $request->photo->store('public/images');
 
-        Post::create([
-            'image' => Storage::url($path),
-            'description' => $request->description,
-            'user_id' => $user->id
-        ]);
+            Post::create([
+                'image' => Storage::url($path),
+                'description' => $request->description,
+                'user_id' => $user->id
+            ]);
 
-        logger()->notice('Um post foi feito por ' . $user->name);
+            logger()->notice('Um post foi feito por ' . $user->name);
 
-        return redirect('/');
+            return redirect('/');
+
+        } catch (\Throwable $th) {
+            logger()->error($th);
+            abort(500);
+        }
+
     }
 
     /**
