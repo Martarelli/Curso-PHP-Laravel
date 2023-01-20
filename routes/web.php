@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TodoController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ExpenseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +16,19 @@ use App\Http\Controllers\TodoController;
 |
 */
 
-Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/signin', [AuthController::class, 'signin'])->name('signin');
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function() {
-    Route::get('dashboard', [TodoController::class, 'index'])->name('dashboard');
-    Route::post('/todos', [TodoController::class, 'store']);
-    Route::get('/todos/{todo}/complete', [TodoController::class, 'complete']);
-    Route::get('/todos/{todo}/edit', [TodoController::class, 'edit']);
-    Route::put('/todos/{todo}', [TodoController::class, 'update']);
-    Route::delete('/todos/{todo}', [TodoController::class, 'destroy']);
+    Route::get('/dashboard', [ExpenseController::class, 'index'])->name('dashboard');
+    Route::get('/expenses/create', [ExpenseController::class, 'create'])->name('expenses.create');
+    Route::post('/expenses', [ExpenseController::class, 'store'])->name('expenses.store');
+    Route::get('/expenses/edit/{expense}', [ExpenseController::class, 'edit'])->name('expenses.edit');
+    Route::get('/expenses/pay/{expense}', [ExpenseController::class, 'pay'])->name('expenses.pay');
+    Route::get('/expenses/unpay/{expense}', [ExpenseController::class, 'unpay'])->name('expenses.unpay');
+    Route::put('/expenses/{expense}', [ExpenseController::class, 'update']);
 });

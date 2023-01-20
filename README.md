@@ -1,11 +1,12 @@
-# Laravel TODO
+<p align="center"><img src="https://i.imgur.com/KQkLiAT.png" width="50"></p>
+<h1 align="center">iConta$ Laravel</h1>
 
 ## Versões
 
 As versões dos frameworks e pacotes:
 
-- Laravel Framework 8.80.0
-- PHP 7.4
+- Laravel Framework 8.60.0
+- PHP ^7.4
 - Bootstrap 5.1
 - jQuery 3.6.0
 - Sweetalert 2
@@ -22,7 +23,7 @@ As instruções a seguir vão adicionar uma cópia do projeto na sua máquina lo
 ```
 GIT
 PHP ^7.4
-MySQL
+Servidor de banco de dados (MySQL, Postgress, etc...)
 Composer (https://getcomposer.org/)
 ```
 
@@ -31,17 +32,17 @@ Composer (https://getcomposer.org/)
 - Primeiramente é necessária uma base de dados, para isso é preciso criar uma:
 
 ```
-CREATE DATABASE todo_app;
-GRANT ALL PRIVILEGES ON laravel . * TO 'seu_usuario'@'localhost';
+CREATE DATABASE icontas;
+GRANT ALL PRIVILEGES ON icontas . * TO 'seu_usuario'@'localhost';
 ```
 
 - Clone o projeto para sua máquina (coloque na pasta do seu servidor WEB):
 
 ```
-git clone https://github.com/eduardoplnascimento/laravel-todo.git
+git clone https://github.com/eduardoplnascimento/iContas-php.git
 ```
 
-- Entre no diretório **laravel-todo**.
+- Entre no diretório **iContas-php**.
 - Copie o arquivo .env.example e nomeie .env:
 
 ```
@@ -54,7 +55,7 @@ cp .env.example .env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=todo_app
+DB_DATABASE=icontas
 DB_USERNAME=seu_usuario
 DB_PASSWORD=sua_senha
 ```
@@ -71,7 +72,7 @@ composer install
 php artisan key:generate
 ```
 
-- Rodar os comandos para migrar o banco de dados com alguns dados de teste:
+- Rodar os comandos para migrar o banco de dados:
 
 ```
 php artisan migrate
@@ -87,14 +88,18 @@ php artisan serve
 
 ## Utilização
 
-- Acessando a URL do projeto, você será direcionado para a página de *login*:
+- Acessando a URL do projeto, você será direcionado para a página inicial:
 
-![](https://i.imgur.com/4J8OCmp.png)
+![](https://i.imgur.com/VuE1ufC.png)
 
-- A partir dessa página é possível fazer o *login* ou acessar a página de cadastro:
+- A partir dessa página é possível acessar a página de *login*:
 
-![](https://i.imgur.com/yOT5r1Y.png)
+![](https://i.imgur.com/3FB2ZwL.png)
 
-- Após fazer o *login* ou cadastro, o usuário é redirecionado para a rota ```/dashboard```
+- A partir da página de *login*, você pode acessar a página de cadastro:
 
-![](https://i.imgur.com/uvrAV4S.png)
+![](https://i.imgur.com/9te92gX.png)
+
+- Após fazer o *login* ou cadastro, o usuário é redirecionado para a rota ```/dashboard``` onde é possível utilizar o sistema
+
+![](https://i.imgur.com/lRNr1eD.png)

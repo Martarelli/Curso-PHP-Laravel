@@ -6,20 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name='csrf-token' content='{{ csrf_token() }}'>
 
-    <title>Todo App @yield('title')</title>
-
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>iConta$ | Controle de Gastos</title>
+    <link rel="icon" href="{{ asset('img/landing/favicon.png') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{{ asset('css/landing/themify-icons.css') }}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{{ asset('css/landing/app.css') }}">
 </head>
 <body style="font-family: 'Poppins', sans-serif;">
     @yield('content')
 
-    <script src="{{ asset('plugins/sweetalert/sweetalert2.all.min.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('plugins/jquery/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('js/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script>
         const Toast = Swal.mixin({
             toast: true,

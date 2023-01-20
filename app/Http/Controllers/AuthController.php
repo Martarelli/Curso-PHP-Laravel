@@ -15,7 +15,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        return view('login');
+        return view('signin');
     }
 
     /**
@@ -25,7 +25,7 @@ class AuthController extends Controller
      */
     public function register()
     {
-        return view('register');
+        return view('signup');
     }
 
     /**
@@ -37,16 +37,12 @@ class AuthController extends Controller
      */
     public function signin(Request $request)
     {
-        try {
-            if (Auth::attempt($request->only('email', 'password'), $request->remember)) {
-                return redirect('/dashboard');
-            }
-        } catch (\Throwable $th) {
-            logger()->error($th);
-            return back()->with('error', 'Erro ao autenticar usuário');
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $request->session()->regenerate();
+            return redirect('/dashboard');
         }
 
-        return back()->with('error', 'Credenciais não encontradas');
+        return back()->withError('Usuário ou senha incorretos');
     }
 
     /**
@@ -58,18 +54,13 @@ class AuthController extends Controller
      */
     public function signup(Request $request)
     {
-        try {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => bcrypt($request->password)
-            ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
 
-            Auth::login($user);
-        } catch (\Throwable $th) {
-            logger()->error($th);
-            return back()->with('error', 'Erro ao criar usuário');
-        }
+        Auth::login($user);
 
         return redirect('/dashboard');
     }
