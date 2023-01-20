@@ -89,7 +89,9 @@ class ExpenseController extends Controller
         }
 
         $attributes = $request->only([
-            'name'
+            'name',
+            'value',
+            'due_date'
         ]);
 
         $expense->update($attributes);
