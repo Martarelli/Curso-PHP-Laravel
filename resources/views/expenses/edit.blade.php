@@ -26,7 +26,7 @@
             @else
                 <a href="/expenses/pay/{{ $expense->id }}" class="btn_2 bg-blue mb-4" style="border: none; width: 100%;">Paga</a>
             @endif
-            <form action="/expenses" method="post">
+            <form action="/expenses/{{$expense->id}}" method="post">
                 @csrf
                 @method('put')
                 <div class="mb-3">
@@ -43,6 +43,7 @@
                 </div>
                 <button type="submit" class="btn_2 mb-3" style="border: none; width: 100%;">Enviar</button>
             </form>
+            <form action="" method="post"></form>
         </div>
     </section>
 @endsection

@@ -80,9 +80,10 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Expense $expense)
+    public function update(Request $request, $id)
     {
         $user = auth()->user();
+        $expense = Expense::find($id);
 
         if ($expense->user_id !== $user->id) {
             abort(403);
