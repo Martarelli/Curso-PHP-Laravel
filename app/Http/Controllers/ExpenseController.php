@@ -143,8 +143,16 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Expense $expense)
+
+    public function delete(Expense $expense)
     {
-        //
+
+        $user = auth()->user();
+
+        if ($expense->user_id !== $user->id) {
+            abort(404);
+        }
+
+        $expense->delete();
     }
 }
