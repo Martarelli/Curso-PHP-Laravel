@@ -80,7 +80,7 @@ class ExpenseController extends Controller
      * @param  \App\Models\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         $user = auth()->user();
         $expense = Expense::find($id);
@@ -90,11 +90,13 @@ class ExpenseController extends Controller
         }
 
         $expense->update([
-            'name'=>$request->title,
+            'title'=>$request->title,
             'value'=>$request->value,
             'due_date'=>$request->due_date
         ]);
 
+        logger()->info($request);
+        logger()->info($expense);
         return redirect('/dashboard')->with('success', 'Despesa editada com sucesso');
     }
 
