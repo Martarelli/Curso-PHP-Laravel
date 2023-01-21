@@ -89,13 +89,11 @@ class ExpenseController extends Controller
             abort(403);
         }
 
-        $attributes = $request->only([
-            'name',
-            'value',
-            'due_date'
+        $expense->update([
+            'name'=>$request->title,
+            'value'=>$request->value,
+            'due_date'=>$request->due_date
         ]);
-
-        $expense->update($attributes);
 
         return redirect('/dashboard')->with('success', 'Despesa editada com sucesso');
     }
