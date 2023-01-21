@@ -43,7 +43,7 @@
                 </div>
                 <button type="submit" class="btn_2 mb-3" style="border: none; width: 100%;">Enviar</button>
             </form>
-            <form action="/expenses/{{$expense->id}}" method="post">
+            <form action="/expeses/{{$expense->id}}" method="post">
                 @csrf
                 <button type="submit" class="btn_2 bg-red mb-3" style="border: none; width: 100%;">Deletar</button>
             </form>
