@@ -145,10 +145,11 @@ class ExpenseController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function delete(Expense $expense)
+    public function delete($id)
     {
 
         $user = auth()->user();
+        $expense = Expense::find($id);
 
         if ($expense->user_id !== $user->id) {
             abort(404);
